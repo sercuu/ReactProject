@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router
 } from 'react-router-dom'
-import Header from './components/Header/Header'
+import {history} from './Helpers'
 import AppRouter from './AppRouter';
+
 
 class App extends Component {
   render() {
     return (
         <React.Fragment>
-          <Router>      
+          <Router history={history}>      
             <AppRouter/>
           </Router>
         </React.Fragment>
