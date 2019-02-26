@@ -12,7 +12,7 @@ class AppRouter extends Component {
                 <Route path="/"
                     component={LoginPage} />
             </Switch>;
-        } else if (!localStorage.getItem('access_token') || localStorage.getItem('access_token') === '') {
+        } else if (!localStorage.getItem('access_toksdsden') || localStorage.getItem('access_token') === '') {
             return <Switch>
                 <Route path="*" component={LoginPage} />
             </Switch>;
