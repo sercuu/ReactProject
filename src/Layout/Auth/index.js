@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import  './Auth.scss';
+
 class Auth extends Component {
   render() {
     return (
-        <div className='container'>
-            <div className='content'>
+        <div className='AuthContainer'>
+            <div className='AuthContent'>
                 {this.props.children}
             </div>
         </div>
