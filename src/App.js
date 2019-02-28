@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router
 } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './Redux/Store'
 import {history} from './Helpers'
 import AppRouter from './AppRouter';
 
@@ -10,9 +12,11 @@ class App extends Component {
   render() {
     return (
         <React.Fragment>
-          <Router history={history}>      
-            <AppRouter/>
-          </Router>
+          <Provider store={store}>
+            <Router history={history}>      
+              <AppRouter/>
+            </Router>
+          </Provider>
         </React.Fragment>
     );
   }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Input from '../FormElements/Input/Input'
+import {connect} from 'react-redux'
+import {sendLoginForm} from '../../Redux/Actions'
 
 class LoginForm extends Component {
 state = {
@@ -50,4 +52,6 @@ render() {
     )
   }
 }
-export default LoginForm;
+export default connect(mapStateToProps,{    
+    sendLoginForm
+})(LoginForm)
