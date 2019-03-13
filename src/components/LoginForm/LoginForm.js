@@ -52,6 +52,15 @@ render() {
     )
   }
 }
+const mapStateToProps = ({LoginReducer}) => {
+   const {
+        activeTabId
+   } = LoginReducer; 
+   return {
+        activeTabId
+   }
+}
+
 export default connect(mapStateToProps,{    
     sendLoginForm
 })(LoginForm)

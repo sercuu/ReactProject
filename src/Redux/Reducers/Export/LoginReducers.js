@@ -1,8 +1,8 @@
-import { LOGIN_FORM_SEND } from '../Types'
+import { LOGIN_FORM_SEND } from '../../Types'
 
 
 const INITIAL_STATE = {
-    
+  activeTabId: {}
   };
   
 
