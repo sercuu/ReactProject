@@ -18,7 +18,13 @@ handleChane = (e) =>
 
 handleSubmit = (e) => {
     e.preventDefault();
-    alert('A name was submitted: ' + this.state.value.userName +'&&'+ this.state.value.password);
+    console.log(this.state.value.userName, 'this.state.value.userName')
+    console.log(this.state.value.password, 'this.state.value.password')
+    const user = {
+        email : this.state.value.userName, 
+        password :this.state.value.password
+    }
+    this.props.sendLoginForm(user)
 }
     
 render() {
@@ -52,12 +58,9 @@ render() {
     )
   }
 }
-const mapStateToProps = ({LoginReducer}) => {
-   const {
-        activeTabId
-   } = LoginReducer; 
+const mapStateToProps = () => {
    return {
-        activeTabId
+  
    }
 }
 
