@@ -1,0 +1,20 @@
+.headerContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ul{
+        display: block;
+        list-style: none;
+        li{
+            float: left;
+            padding-left: 25px;
+
+            &:nth-child(1){
+                padding-left: 0;
+            }
+         
+        }
+    }
+}

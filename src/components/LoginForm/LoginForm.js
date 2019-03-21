@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Input from '../FormElements/Input/Input'
 import {connect} from 'react-redux'
 import {sendLoginForm} from '../../Redux/Actions'
 import {Field, reduxForm} from 'redux-form'

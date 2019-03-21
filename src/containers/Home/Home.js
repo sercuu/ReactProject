@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <Default>
-        <div>
+        <div className='homeContainer'>
           <h1>Home Component</h1>
         </div>
       </Default>
@@ -14,4 +14,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Home;  
