@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Input from '../FormElements/Input/Input'
 import {connect} from 'react-redux'
 import {sendLoginForm} from '../../Redux/Actions'
+import {Field, reduxForm} from 'redux-form'
 
 class LoginForm extends Component {
 state = {
@@ -16,39 +17,40 @@ handleChane = (e) =>
         }
     });
 
-handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state.value.userName, 'this.state.value.userName')
-    console.log(this.state.value.password, 'this.state.value.password')
+submit = (values) => {
+    console.log(values.userName, 'values')
+    console.log(values.password, 'values')
     const user = {
-        email : this.state.value.userName, 
-        password :this.state.value.password
+        email : values.userName, 
+        password :values.password
     }
     this.props.sendLoginForm(user)
 }
     
 render() {
+    const{handleSubmit} = this.props;
+
     return (
         <div className='container'>
             <div className="content">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit(this.submit)}>
                     <label>
                         Kullanici adi
-                        <Input
-                            type='text'
-                            name='userName'
-                            onChange={this.handleChane}
-                        />
-                    </label>   
+                    </label> 
+                    <Field
+                       name="userName"
+                       component="input"
+                       type="text"
+                       placeholder="First ssName"
+                    />                      
                     <label>
                         Şifre
-                        <Input
-                            type='password'
-                            name='password'                           
-                            onChange={this.handleChane}
-                        />
-                    </label>  
-
+                    </label> 
+                    <Field
+                        component="input"
+                        name='password'                           
+                        type='password'
+                    />   
                     <button type='submit'>
                         Login
                     </button>
@@ -66,4 +68,8 @@ const mapStateToProps = () => {
 
 export default connect(mapStateToProps,{    
     sendLoginForm
+})(
+    reduxForm({
+    form: 'login'
 })(LoginForm)
+)
