@@ -17,8 +17,6 @@ handleChane = (e) =>
     });
 
 submit = (values) => {
-    console.log(values.userName, 'values')
-    console.log(values.password, 'values')
     const user = {
         email : values.userName, 
         password :values.password

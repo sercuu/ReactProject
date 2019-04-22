@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {logOut} from '../../Redux/Actions'
+import './LogOut.scss'
 
 class LogOut extends Component {
 

@@ -1,12 +1,12 @@
 .headerContainer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 
     ul{
         display: block;
         list-style: none;
+        float: left;
+        margin:0;
+        padding:0;
         li{
             float: left;
             padding-left: 25px;
