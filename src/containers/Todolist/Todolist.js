@@ -1,30 +1,46 @@
 import React, { Component } from 'react'
 import Default from '../../Layout/Default/index'
+import List from '../../components/List/List'
 import './Todolist.scss'
 
 class Todolist extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            value:'',
+            items: []
+        }
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     }
 
-handleSearchTermSubmit(event) {
-    event.preventDefault();
-    this.props.onSearchTermSubmit(this.textInput.value);
-    }
+onChange = (e) => {
+    this.setState({
+        value: e.target.value
+    });
+}
+onSubmit = (value) => {
+    value.preventDefault();
+    this.setState({
+        value: '',
+        items: [...this.state.items, this.state.value]
+      });
+}
 
 render() {
-    const{handleSubmit} = this.props;
-
     return (
         <Default>
-            <div className="SearchBar">
-            <h1>SearchBar</h1>
-            <form onSubmit={this.handleSearchTermSubmit}>
-            <input type="text" ref={(input) => this.textInput = input} />
-            <button>Search</button>
-            <button type="button">Random (doesn't do anything)</button>
+            <h1>Todolist</h1>
+            <form onSubmit={this.onSubmit}>
+                <input 
+                    type='text'
+                    placeholder='Todo' 
+                    value={this.state.value} 
+                    onChange={this.onChange} />
+                    
+                <button disabled={!this.state.value}>Submit</button>
             </form>
-        </div>
+            <List items={this.state.items}/>
         </Default>
     )
   }
