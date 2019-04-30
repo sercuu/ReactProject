@@ -1,9 +1,33 @@
 .todolist{
-    .listSide{
-        ul{
-            margin:25px 0;
-            li {
-            }
+    text-align: center;
+    input{
+        width: 60%;
+        height: 50px;
+        border:1px solid #4285f4;
+        border-radius: 10px;
+        padding-left:10px;
+        font: {
+            size: 16px;
+            weight:bold;
+        }
+
+        &:hover, &:focus {
+            outline: none;
+            border:1px solid #4285f4;
+        }
+    }
+    .addButton{
+        margin-left: 10px;
+        height: 50px;
+        background: #4285f4;
+        opacity: 0.7;
+        border: none;
+        padding: 0 30px;
+        border-radius: 10px;
+        color:#000;
+        font: {
+            size:16px;
+            weight:bold;
         }
     }
   

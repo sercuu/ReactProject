@@ -5,9 +5,7 @@ class Default extends Component {
     return (
         <div className='container'>
             <Header/>
-            <div className='content'>
-                {this.props.children}
-            </div>
+            {this.props.children}
         </div>
     )
   }

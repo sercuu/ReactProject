@@ -1,0 +1,51 @@
+.listContainer {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    .list{
+        width: 70%;
+        ul{
+            padding: 0;
+            margin:0;
+            list-style: none;
+
+            li {
+                margin:25px 0;
+                height: 50px;
+                background: #efefef;    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                position: relative;
+
+                font: {
+                    size:16px;
+                }
+                button{
+                    position: absolute;
+                    top:-13px;
+                    right: -13px;
+                    background: none;
+                    border:none;
+                    color:#4285f4;
+                    cursor: pointer;
+                    
+                     font: {
+                        size:25px;
+                        weight:bold;
+                    }
+                    &::after{
+                        content: 'X'
+                    }
+                    &:hover, &:focus{
+                        outline: none;
+                        border:none;
+                    }
+                }
+            }
+        }
+    }
+   
+}

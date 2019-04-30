@@ -29,18 +29,24 @@ onSubmit = (value) => {
 
 render() {
     return (
-        <Default>
-            <h1>Todolist</h1>
-            <form onSubmit={this.onSubmit}>
-                <input 
-                    type='text'
-                    placeholder='Todo' 
-                    value={this.state.value} 
-                    onChange={this.onChange} />
-                    
-                <button disabled={!this.state.value}>Submit</button>
-            </form>
-            <List items={this.state.items}/>
+        <Default>  
+            <div className="todolist">
+                <div className='row'>
+                    <div className='col-12'>
+                        <h1>Todolist</h1>
+                        <form onSubmit={this.onSubmit}>
+                            <input
+                                type='text'
+                                placeholder='Todo'
+                                value={this.state.value}
+                                onChange={this.onChange} />
+
+                            <button className='addButton' disabled={!this.state.value}>Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <List items={this.state.items} />
+            </div>  
         </Default>
     )
   }
