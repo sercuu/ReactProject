@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   };
   
 
-const LoginReducer = (state = INITIAL_STATE, action) => {
+const loginReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
       case LOGIN_FORM_SEND:
         return{
@@ -24,4 +24,4 @@ const LoginReducer = (state = INITIAL_STATE, action) => {
           return state;
     }
 }   
-export default LoginReducer;
+export default loginReducer;
