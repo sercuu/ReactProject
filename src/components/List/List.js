@@ -1,5 +1,7 @@
 import React from 'react';
 import './List.scss'
+import {connect} from 'react-redux'
+import {todolistDelete} from '../../Redux/Actions'
 
 const List = props => (
     <div className="listContainer">
@@ -11,6 +13,7 @@ const List = props => (
                   {item}
                   <button onClick={ () => {
                     console.log(index, 'sds')
+;                    props.todolistDelete(index)
                   }}></button>
                 </li>
               })
@@ -20,6 +23,13 @@ const List = props => (
     </div>  
 );
 
+const mapStateToProps = () => {
+  return {
+
+  }
+}
 
 
-export default List;
+export default connect(mapStateToProps,{
+  todolistDelete
+})(List);

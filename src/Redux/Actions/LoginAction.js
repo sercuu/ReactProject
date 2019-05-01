@@ -16,8 +16,7 @@ export const sendLoginForm = data => dispatch => {
 
 const setLogalStorage = (dispatch, response) => {
   auth.setToken(response.data.token);
-  history.push('/home')
-
+  history.push('/home');
   dispatch({ 
     type: LOGIN_FORM_SEND_SUCCSES
   });

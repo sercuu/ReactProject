@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Default from '../../Layout/Default/index'
+import { connect } from 'react-redux';
 import List from '../../components/List/List'
 import './Todolist.scss'
+import { todolistDelete} from '../../Redux/Actions'
 
 class Todolist extends Component {
     constructor(props){
@@ -27,13 +29,18 @@ onSubmit = (value) => {
       });
 }
 
+componentWillReceiveProps(props){
+    console.log(props, 'props')
+}
+
 render() {
     return (
         <Default>  
             <div className="todolist">
                 <div className='row'>
                     <div className='col-12'>
-                        <h1>Todolist</h1>
+                        <h1>Todolist</h1>d
+                        {this.props.todolistDelete}  d
                         <form onSubmit={this.onSubmit}>
                             <input
                                 type='text'
@@ -51,5 +58,13 @@ render() {
     )
   }
 }
+const mapStateToProps = (todolistReducer) => {
+    const { todolistDelete} = todolistReducer
+    return {
+        todolistDelete
+    }
+}
 
-export default  Todolist
+export default connect(mapStateToProps, {
+    todolistDelete
+})(Todolist)

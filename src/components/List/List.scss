@@ -1,10 +1,7 @@
 .listContainer {
-    width: 100%;
+    width: 50%;
     margin-top: 50px;
-    display: flex;
-    justify-content: center;
     .list{
-        width: 70%;
         ul{
             padding: 0;
             margin:0;
@@ -15,10 +12,11 @@
                 height: 50px;
                 background: #efefef;    
                 display: flex;
-                justify-content: center;
+                justify-content: left;
                 align-items: center;
                 border-radius: 10px;
                 position: relative;
+                padding-left:10px;
 
                 font: {
                     size:16px;
