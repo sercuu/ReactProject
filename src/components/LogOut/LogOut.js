@@ -1,31 +1,32 @@
-import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import {logOut} from '../../Redux/Actions'
-import './LogOut.scss'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { logOut } from '../../Redux/Actions/loginAction';
+import './LogOut.scss';
 
-class LogOut extends Component { 
-
-
-  render () {
+class LogOut extends Component {
+  render() {
     return (
       <div>
-        <button type='submit' onClick={ () => {
-          this.props.logOut()
-        }}>
-            Log Out
+        <button
+          type="submit"
+          onClick={() => {
+            this.props.logOut();
+          }}
+        >
+          Log Out
         </button>
       </div>
-    )
-    
+    );
   }
 }
 
 const mapStateToProps = () => {
-  return {
- 
-  }
-}
+  return {};
+};
 
-export default connect(mapStateToProps,{    
-  logOut
-})(LogOut)
+export default connect(
+  mapStateToProps,
+  {
+    logOut
+  }
+)(LogOut);

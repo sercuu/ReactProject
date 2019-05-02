@@ -1,13 +1,12 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux';
 import { reducer as reduxFormReducer } from 'redux-form';
-import loginReducers from './Export/loginReducers';
-import todolistReducer from './Export/todolistReducers'
+import loginReducers from './Export/loginReducers.js';
+import todolistReducer from './Export/todolistReducers';
 
 const allField = combineReducers({
-    todolistReducer,
-    loginReducers,
-    form: reduxFormReducer,
-  });
-  
-  export default allField;
-   
+  todolist: todolistReducer,
+  auth: loginReducers,
+  form: reduxFormReducer
+});
+
+export default allField;
