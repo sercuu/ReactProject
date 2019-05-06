@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './Redux/store.js';
+import store from './Redux/store';
 import { history } from './Helpers';
 import AppRouter from './AppRouter';
 
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Provider store={store}>
-          <Router history={history}>
+          <Router history={history}> 
             <AppRouter />
           </Router>
         </Provider>

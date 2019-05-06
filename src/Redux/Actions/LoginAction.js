@@ -4,6 +4,7 @@ import auth from '../../Helpers/auth'
 import {history} from '../../Helpers'
 
 export const sendLoginForm = data => dispatch => {
+  console.log(data, 'data')
     dispatch({
       type: LOGIN_FORM_SEND
     }); 

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as reduxFormReducer } from 'redux-form';
-import loginReducers from './Export/loginReducers.js';
+import loginReducers from './Export/loginReducers';
 import todolistReducer from './Export/todolistReducers';
 
 const allField = combineReducers({
