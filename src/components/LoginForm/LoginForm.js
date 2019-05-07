@@ -21,7 +21,7 @@ submit = (values) => {
         email : values.userName, 
         password :values.password
     }
-    this.props.sendLoginForm(user)
+    this.props.login(user)
 }
     
 render() {
@@ -57,16 +57,13 @@ render() {
     )
   }
 }
-const mapStateToProps = () => {
+const mapDispatchToProps = dispatch => {
    return {
-  
+    login : user => dispatch(sendLoginForm(user))
    }
 }
 
-export default connect(mapStateToProps,{    
-    sendLoginForm
-})(
+export default connect(null, mapDispatchToProps)(
     reduxForm({
     form: 'login'
-})(LoginForm)
-)
+})(LoginForm))
