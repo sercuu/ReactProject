@@ -7,3 +7,4 @@ export const LOG_OUT = 'log out';
 export const TODOLIST_GET = 'todolistget';
 export const TODOLIST_POST = 'todolistpost';
 export const TODOLIST_DELETE = 'todolist';
+export const TODOLIST_EDIT = 'todolist edit';

@@ -21,7 +21,7 @@
                 font: {
                     size:16px;
                 }
-                button{
+                .delete{
                     position: absolute;
                     top:-13px;
                     right: -13px;
@@ -41,9 +41,29 @@
                         outline: none;
                         border:none;
                     }
+                    }
+                .edit{
+                    position: absolute;
+                    top:-13px;
+                    right: -38px;
+                    background: none;
+                    border:none;
+                    color:red;
+                    cursor: pointer;
+                    
+                        font: {
+                        size:25px;
+                        weight:bold;
+                    }
+                    &::after{
+                        content: 'X'
+                    }
+                    &:hover, &:focus{
+                        outline: none;
+                        border:none;
+                    }
                 }
             }
         }
     }
-   
 }

@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import Default from '../../Layout/Default/index';
 import { connect } from 'react-redux';
 import List from '../../components/List/List';
-import { todolistPost, todolistGet, todolistDelete } from '../../Redux/Actions';
+import { todolistPost, todolistGet, todolistDelete, todolistEdit } from '../../Redux/Actions';
 import './Todolist.scss';
 
 class Todolist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      edit: false
     };
   }
 
@@ -21,14 +22,31 @@ class Todolist extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { list } = this.props;
-    const { value } = this.state;
-    const item = { id: list.length + 1, name: value };
-    this.props.post(item);
-    this.setState({
-      value: ''
-    });
+    if(this.state.edit){
+      console.log('edit')
+      
+    }else{
+      const { list } = this.props;
+      const { value } = this.state;
+      const item = { id: list.length + 1, name: value };
+      this.props.post(item);
+      this.setState({
+        value: ''
+      });
+    }   
   };
+
+  handleEdit = (id) => {
+    const {list} = this.props
+    console.log(list, 'list')
+    console.log(id, 'id')
+    const newVal = list.filter(item => item.id == id)
+    console.log(newVal, 'newVals')
+    this.setState({
+      value : newVal[0].name,
+      edit:true
+    });
+  }
 
   render() {
     return (
@@ -51,7 +69,10 @@ class Todolist extends Component {
               </form>
             </div>
           </div>
-          <List items={this.props.list} handleDelete={this.props.delete} />
+          <List items={this.props.list} 
+                handleDelete={this.props.delete} 
+                handleEdit={this.handleEdit}
+                />
         </div>
       </Default>
     );
@@ -69,7 +90,8 @@ const mapDispatchToProps = dispatch => {
   return {
     delete: id => dispatch(todolistDelete(id)),
     get: () => dispatch(todolistGet),
-    post: item => dispatch(todolistPost(item))
+    post: item => dispatch(todolistPost(item)),
+    edit : id => dispatch(todolistEdit(id))
   };
 };
 
