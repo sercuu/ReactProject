@@ -19,11 +19,9 @@ export const todolistDelete = id => dispatch => {
     payload: id
   });
 };
-export const todolistEdit= (name, id) => dispatch => {
-  console.log(name, 'name')
-  console.log(id, 'id')
+export const todolistEdit= (value, id) => dispatch => {
   dispatch({
     type: TODOLIST_EDIT,
-    payload: name,id
+    payload: value,id
   });
 };

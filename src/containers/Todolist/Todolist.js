@@ -10,6 +10,7 @@ class Todolist extends Component {
     super(props);
     this.state = {
       value: '',
+      id: '',
       edit: false
     };
   }
@@ -22,9 +23,14 @@ class Todolist extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    if(this.state.edit){
-      console.log('edit')
-      
+    const {edit} = this.state
+    if(edit){
+      const { value, id } = this.state
+      this.props.edit({value, id})
+      this.setState({
+        value:'',
+        edit:false
+      });
     }else{
       const { list } = this.props;
       const { value } = this.state;
@@ -38,13 +44,11 @@ class Todolist extends Component {
 
   handleEdit = (id) => {
     const {list} = this.props
-    console.log(list, 'list')
-    console.log(id, 'id')
-    const newVal = list.filter(item => item.id == id)
-    console.log(newVal, 'newVals')
+    const selectedItem = list.find(item => item.id === id);
     this.setState({
-      value : newVal[0].name,
-      edit:true
+      value: selectedItem.name,
+      edit:true,
+      id: id
     });
   }
 
@@ -91,7 +95,7 @@ const mapDispatchToProps = dispatch => {
     delete: id => dispatch(todolistDelete(id)),
     get: () => dispatch(todolistGet),
     post: item => dispatch(todolistPost(item)),
-    edit : id => dispatch(todolistEdit(id))
+    edit : item => dispatch(todolistEdit(item))
   };
 };
 

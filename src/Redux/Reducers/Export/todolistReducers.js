@@ -20,10 +20,14 @@ const todolistReducer = (state = INITIAL_STATE, action) => {
         list
       };
     case TODOLIST_EDIT:
-      const editItem = state.list.filter(item => item.id === action.payload);
-      console.log(editItem, 'list');
+      const newList = state.list.map(item => {
+        if(item.id === action.payload.id){
+            item.name = action.payload.value
+        }
+        return item
+      });
       return {
-        editItem
+        list : newList
       };
 
     default:

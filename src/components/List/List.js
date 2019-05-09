@@ -8,7 +8,6 @@ const List = ({ handleDelete, items, handleEdit }) => (
         {items.map(item => {
           return (
             <li key={item.id}>
-              {item.id}
               {item.name}
               <button className='delete'
                 onClick={() => {
