@@ -1,4 +1,4 @@
-import { LOGIN_FORM_SEND, LOGIN_FORM_SEND_SUCCSES, LOG_OUT } from '../types'
+import { LOGIN_FORM_SEND, LOGIN_FORM_SEND_SUCCSES, LOG_OUT } from '../types.js'
 import * as res from '../../Client'
 import auth from '../../Helpers/auth'
 import { history } from '../../Helpers'
